@@ -10,7 +10,9 @@ template<typename E>
 class Vector {
 public:
     class Iterator;
+
     class ConstIterator;
+
     using value_type = E;
     using size_type = std::size_t;
     using difference_type = std::ptrdiff_t;
@@ -107,7 +109,7 @@ public:
     }
 
     void push_back(const_reference val) {
-        if(sz >= max_sz) {
+        if (sz >= max_sz) {
             grow();
         }
 
@@ -218,6 +220,7 @@ public:
         pointer ptr;
     public:
         Iterator() : ptr{ nullptr } {}
+
         explicit Iterator(pointer _ptr) : ptr{ _ptr } {}
 
         reference operator*() const {
@@ -238,7 +241,8 @@ public:
 
         iterator& operator++() {
             ++ptr;
-            return *this;        }
+            return *this;
+        }
 
         iterator operator++(int) {
             return iterator{ ptr++ };
@@ -260,6 +264,7 @@ public:
         pointer ptr;
     public:
         ConstIterator() : ptr{ nullptr } {}
+
         explicit ConstIterator(pointer _ptr) : ptr{ _ptr } {}
 
         reference operator*() const {
